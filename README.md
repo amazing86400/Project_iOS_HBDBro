@@ -31,7 +31,7 @@ HBDBro는 오늘이 생일인 친구를 놓치지 않도록 도와줍니다. 친
 <br>
 <br>
 
-**2. 친구 추가**
+**2. 친구 추가**
 
 <p align="center">
   <img src="https://github.com/amazing86400/Project_iOS_HBDBro/assets/96508771/1dcc9d2b-57be-40a5-9fd8-a44ebd1512e5" width=20% height=20%>
