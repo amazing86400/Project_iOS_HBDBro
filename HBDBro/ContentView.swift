@@ -13,18 +13,16 @@ struct ContentView: View {
     @Query(sort: \Friends.birthday) private var friends: [Friends]
     @Environment(\.modelContext) private var context
     
-    // 사람 추가 사용 변수
-    @State private var newName = ""
-    @State private var newbirthday = Date.now
+    @State private var isAddFriendView = false
     
     var body: some View {
         NavigationStack {
             List {
                 // 오늘 생일자 목록
                 if friends.contains(where: {$0.isBirthday}) {
-                    Section("오늘 생일자") {
+                    Section("생일인 친구") {
                         ForEach(friends.filter{ $0.isBirthday }) { friend in
-                            NavigationLinkView(friend: friend, isBirthday: true)
+                            NavigationLinkView(friend: friend, isBirthday: friend.isBirthday)
                         }
                         .onDelete(perform: { indexSet in
                             removeName(at: indexSet)
@@ -33,31 +31,32 @@ struct ContentView: View {
                     .bold()
                 }
                 // 전체 목록
-                Section("내 사람들") {
+                Section("친구") {
                     ForEach(friends) { friend in
-                        NavigationLinkView(friend: friend, isBirthday: false)
+                        NavigationLinkView(friend: friend, isBirthday: friend.isBirthday)
                     }
                     .onDelete(perform: { indexSet in
                         removeName(at: indexSet)
                     })
                 }
-                
             }
-            
-            .task {
-                context.insert(Friends(name: "신기범", birthday: .now))
-                context.insert(Friends(name: "김수현", birthday: .distantPast))
-            }
+            //            .task {
+            //                context.insert(Friends(name: "신기범", birthday: .now))
+            //                context.insert(Friends(name: "김수현", birthday: .distantPast))
+            //            }
             .navigationTitle("HBD Bro")
             .toolbar {
                 Button {
-                    print("굿")
+                    isAddFriendView.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
-                .padding()
+                .sheet(isPresented: $isAddFriendView) {
+                    AddFriendView()
+                }
             }
         }
+        //        .tint(.black)
     }
     
     // 생일자 지우기 함수
@@ -72,9 +71,13 @@ struct ContentView: View {
 struct NavigationLinkView: View {
     let friend: Friends
     let isBirthday: Bool
+    let todayYear = Calendar.current.component(.year, from: Date())
     
     var body: some View {
-        NavigationLink(destination: Text("test")) {
+        let friendBirthdayYear = Calendar.current.component(.year, from: friend.birthday)
+        let age = todayYear - friendBirthdayYear
+        
+        NavigationLink(destination: DetailView(isBirthday: isBirthday, friendName: friend.name, friendAge: age)) {
             HStack {
                 if isBirthday {
                     Image(systemName: "birthday.cake.fill")

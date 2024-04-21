@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E08905F42BD3B9BC009A5683 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08905F32BD3B9BC009A5683 /* AddFriendView.swift */; };
+		E08905F62BD3E5CE009A5683 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08905F52BD3E5CE009A5683 /* DetailView.swift */; };
 		E0EB83592BD396B100DD4095 /* HBDBroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB83582BD396B100DD4095 /* HBDBroApp.swift */; };
 		E0EB835B2BD396B100DD4095 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB835A2BD396B100DD4095 /* ContentView.swift */; };
 		E0EB835D2BD396B300DD4095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0EB835C2BD396B300DD4095 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E08905F32BD3B9BC009A5683 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		E08905F52BD3E5CE009A5683 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E0EB83552BD396B100DD4095 /* HBDBro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HBDBro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0EB83582BD396B100DD4095 /* HBDBroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBDBroApp.swift; sourceTree = "<group>"; };
 		E0EB835A2BD396B100DD4095 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			children = (
 				E0EB83582BD396B100DD4095 /* HBDBroApp.swift */,
 				E0EB835A2BD396B100DD4095 /* ContentView.swift */,
+				E08905F52BD3E5CE009A5683 /* DetailView.swift */,
+				E08905F32BD3B9BC009A5683 /* AddFriendView.swift */,
 				E0EB83662BD3977000DD4095 /* Friend.swift */,
 				E0EB835C2BD396B300DD4095 /* Assets.xcassets */,
 				E0EB835E2BD396B300DD4095 /* Preview Content */,
@@ -142,6 +148,8 @@
 			files = (
 				E0EB835B2BD396B100DD4095 /* ContentView.swift in Sources */,
 				E0EB83672BD3977000DD4095 /* Friend.swift in Sources */,
+				E08905F42BD3B9BC009A5683 /* AddFriendView.swift in Sources */,
+				E08905F62BD3E5CE009A5683 /* DetailView.swift in Sources */,
 				E0EB83592BD396B100DD4095 /* HBDBroApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

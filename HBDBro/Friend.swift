@@ -20,7 +20,11 @@ class Friends {
     
     var isBirthday: Bool {
         let today = Date()
+        let calendar = Calendar.current
+        let components: Set<Calendar.Component> = [.month, .day]
+        let todayComponents = calendar.dateComponents(components, from: today)
+        let friendComponents = calendar.dateComponents(components, from: birthday)
         
-        return Calendar.current.isDate(birthday, equalTo: today, toGranularity: .month) && Calendar.current.isDate(birthday, equalTo: today, toGranularity: .day)
+        return todayComponents.month == friendComponents.month && todayComponents.day == friendComponents.day
     }
 }
